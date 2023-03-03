@@ -1,11 +1,27 @@
+const { withSentryConfig } = require('@sentry/nextjs');
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+
+const moduleExports = {
   experimental: {
     appDir: true,
   },
   images: {
     domains: ['image.tmdb.org'],
   },
+  sentry: {
+    hideSourceMaps: true,
+  },
 }
 
-module.exports = nextConfig
+const sentryWebpackPluginOptions = {
+  silent: true
+};
+
+module.exports = withSentryConfig(
+  moduleExports,
+  sentryWebpackPluginOptions
+);
+
+
+

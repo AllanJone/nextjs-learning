@@ -37,3 +37,9 @@ next-env.d.ts
 
 #vscode
 .vscode
+
+# Sentry
+.sentryclirc
+
+# Sentry
+next.config.original.js

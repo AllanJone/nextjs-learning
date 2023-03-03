@@ -1,16 +1,17 @@
 'use client';
 
-export default function Error({
-    error,
-    reset,
-}: {
-    error: Error;
-    reset: () => void;
-}) {
-    return (
-        <div>
-            <h2>Something went wrong!</h2>
-            <button onClick={() => reset()}>Try again</button>
-        </div>
-    );
-}
+import * as Sentry from "@sentry/nextjs";
+import type { NextPage } from "next";
+import type { ErrorProps } from "next/error";
+import NextErrorComponent from "next/error";
+
+const CustomErrorComponent: NextPage<ErrorProps> = props => {
+    return <NextErrorComponent statusCode={props.statusCode} />;
+};
+
+CustomErrorComponent.getInitialProps = async contextData => {
+    await Sentry.captureUnderscoreErrorException(contextData);
+    return NextErrorComponent.getInitialProps(contextData);
+};
+
+export default CustomErrorComponent;
