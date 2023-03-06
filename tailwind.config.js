@@ -18,5 +18,16 @@ module.exports = {
       fluid: "repeat(auto-fit,minmax(15rem,1fr))",
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  // daisyUI config (optional)
+  daisyui: {
+    styled: true,
+    themes: ["light", "dark", "night"],
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "dark",
+  },
 }
