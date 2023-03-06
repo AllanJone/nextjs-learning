@@ -1,5 +1,7 @@
 import './globals.css'
 import { Montserrat } from 'next/font/google'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
 const montserrat = Montserrat({
   weight: ['400', '700'],
@@ -19,10 +21,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={`${montserrat.className} mx-32 my-12`}>
-        {children}
+    <html data-theme="dark" lang="en">
+      <body>
+        <Navbar />
+        <div className={`${montserrat.className} mx-32 my-12`}>
+          {children}
+        </div>
+        <Footer />
       </body>
+      {/* <body className={`${montserrat.className} mx-32 my-12`}>
+        {children}
+      </body> */}
     </html>
   )
 }

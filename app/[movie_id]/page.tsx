@@ -1,16 +1,16 @@
 import { Movie } from "../types/Movie";
 import MovieDetail from "../MovieDetail";
 
-export async function generateStaticParams() {
-  const data = await fetch(`${process.env.API_BASE_URL}movie/popular?api_key=${process.env.API_KEY}`)
-  const res = await data.json()
+// export async function generateStaticParams() {
+//   const data = await fetch(`${process.env.API_BASE_URL}movie/popular?api_key=${process.env.API_KEY}`)
+//   const res = await data.json()
 
-  return res.results.map((movie: Movie) => (
-    {
-      movie_id: movie.id.toString()
-    }
-  ));
-}
+//   return res.results.map((movie: Movie) => (
+//     {
+//       movie_id: movie.id.toString()
+//     }
+//   ));
+// }
 
 export default async function MovieDetailPage({
   params,

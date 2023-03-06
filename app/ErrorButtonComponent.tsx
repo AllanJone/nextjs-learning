@@ -8,6 +8,6 @@ export default function MyComponent(): JSX.Element {
     };
 
     return (
-        <button className="text-sm bg-green-600 inline-block my-2 py-2 px-4 rounded-md" onClick={handleClick}>Click me</button>
+        <button className="btn btn-primary" onClick={handleClick}>Click me</button>
     );
 }
